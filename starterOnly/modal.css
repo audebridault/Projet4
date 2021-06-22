@@ -28,6 +28,7 @@ p {
 
 img {
   padding-right: 1rem;
+  width: 8rem;
 }
 
 .topnav {
@@ -62,10 +63,12 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
   display: none;
+  color: red;
 }
 
 @media screen and (max-width: 768px) {
@@ -435,9 +438,7 @@ input[data-error]::after {
   position: relative;
   z-index: 1;
 }
-.hero-headline {
-  font-weight: normal;
-}
+
 .hero-text {
   width: 146%;
   font-weight: normal;
@@ -493,12 +494,12 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .hero-img img {
     border-radius: 10px;
