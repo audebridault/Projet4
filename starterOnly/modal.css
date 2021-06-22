@@ -436,9 +436,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
   font-weight: normal;
-  white-space: nowrap;
 }
 .hero-text {
   width: 146%;
