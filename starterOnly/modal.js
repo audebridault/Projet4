@@ -1,3 +1,8 @@
+const age ={
+  min : 18,
+  max : 110
+};
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -23,6 +28,23 @@ inputs.forEach((input) => {
     validate(this);
   };
 });
+
+const birthdate = document.getElementById("birthdate");
+birthdate.setAttribute("max", makeDate(age.min));
+birthdate.setAttribute("min", makeDate(age.max));
+
+/**
+ * [makeDate description]
+ *
+ * @param   {Number}  gap  le nombre d'année à revenir en arrière
+ *
+ * @return  {Date}       [return description]
+ */
+function makeDate(gap){
+  const nouvelleDate = new Date();
+  nouvelleDate.setFullYear(nouvelleDate.getFullYear() - gap);
+  return nouvelleDate.toISOString().slice(0,10);
+} 
 
 // launch modal form
 function launchModal() {
@@ -56,11 +78,10 @@ function validateOnSubmit() {
     "#locations input:checked"
   ).length;
 
-  if (isNaN(quantity) || quantity <= 0){
+  if (isNaN(quantity) || quantity <= 0) {
     //ajouter des conditions
     showMessage(document.getElementById("locations"), true);
-  }
-  else {
+  } else {
     console.log("---");
     let cityError = false;
     console.log("inputLocations", inputsLocations);
@@ -92,12 +113,9 @@ function validateOnSubmit() {
       false,
       "vous devez approver les conditions"
     );
-
-  console.log(
-    "erreurs",
-    document.querySelectorAll("div[data-error-visible=true]").length
-  );
-  alert("ok");
+    
+  if (document.querySelectorAll("div[data-error-visible=true]").length > 0) return;
+  document.querySelector(".modal-body").innerHTML = "Merci! Votre réservation à été reçue.";
 }
 
 function validate(input) {
@@ -126,14 +144,20 @@ function validateData(input) {
     };
   switch (input.type) {
     case "date":
+      var selected = new Date(input.value);
+      var min = new Date(makeDate(age.min));
+      var max = new Date(makeDate(age.max));
+
+      if (selected > min) return { success : false, msg: `il faut avoir plus de ${age.min} ans`};
+      if (selected < max) return { success: false,  msg: "vous êtes trop vieux papy" };
       return { success: true };
     case "email":
       return input.checkValidity()
         ? { success: true }
         : {
-            success: false,
-            msg: "le format de l'email n'est pas valide",
-          };
+          success: false,
+          msg: "le format de l'email n'est pas valide",
+        };
     case "text":
       var regex = /[a-z]/gi;
       if (regex.test(input.value) === false)
