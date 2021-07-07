@@ -111,13 +111,13 @@ img {
   }
   .hero-text{
     position: absolute;
+    top: 15%;
+    text-align: justify;
     width: 200%;
-    top: 10%;
-    text-align: inherit;
   }
   .btn-signup{
     position: absolute;
-    top: 20%;
+    top: 25%;
   }
 }
 
