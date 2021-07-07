@@ -102,6 +102,24 @@ img {
     margin-top: -15px;
   }
 } 
+@media screen and (min-width: 1023px) {
+  .hero-headline{
+    position: absolute;
+    width: 300%;
+    text-align: inherit;
+    font-size: 85px;
+  }
+  .hero-text{
+    position: absolute;
+    width: 200%;
+    top: 10%;
+    text-align: inherit;
+  }
+  .btn-signup{
+    position: absolute;
+    top: 20%;
+  }
+}
 
 main {
   font-size: 130%;
@@ -113,8 +131,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -132,12 +148,13 @@ main {
 .modal-btn:hover {
   background: #3876ac;
 }
-
+ 
 .footer {
   margin: 20px;
   padding: 10px;
   font-family: var(--font-slab);
 }
+
 
 /* Modal form */
 
