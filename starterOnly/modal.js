@@ -111,7 +111,7 @@ function validateOnSubmit() {
     showMessage(
       checkbox.parentNode,
       false,
-      "vous devez approver les conditions"
+      "vous devez approuver les conditions"
     );
     
   if (document.querySelectorAll("div[data-error-visible=true]").length > 0) return;
@@ -149,7 +149,7 @@ function validateData(input) {
       var max = new Date(makeDate(age.max));
 
       if (selected > min) return { success : false, msg: `il faut avoir plus de ${age.min} ans`};
-      if (selected < max) return { success: false,  msg: "vous êtes trop vieux papy" };
+      if (selected < max) return { success: false,  msg: "vous êtes trop vieux" };
       return { success: true };
     case "email":
       return input.checkValidity()
