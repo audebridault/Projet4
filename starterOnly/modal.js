@@ -4,12 +4,12 @@ const age ={
 };
 
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
+  const liste = document.getElementById("myTopnav").classList;
+  if (liste.contains("responsive")) {
+    liste.remove("responsive");
+    return;
+  } 
+  liste.add("responsive");
 }
 
 // DOM Elements
@@ -48,6 +48,7 @@ function makeDate(gap){
 
 // launch modal form
 function launchModal() {
+  scroll(0, 0);
   modalbg.style.display = "block";
 }
 
