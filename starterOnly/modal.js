@@ -116,7 +116,10 @@ function validateOnSubmit() {
     );
     
   if (document.querySelectorAll("div[data-error-visible=true]").length > 0) return;
-  document.querySelector(".modal-body").innerHTML = "Merci! Votre réservation à été reçue.";
+  const modal = document.querySelector(".modal-body");
+  modal.innerHTML =
+    "<p>Merci! Votre réservation à été reçue.</p> <button class='btn-signup'>Fermer</button>";
+  modal.classList.add("final")
 }
 
 function validate(input) {

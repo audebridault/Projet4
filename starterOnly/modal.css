@@ -615,3 +615,8 @@ footer {
     opacity: 1;
   }
 }
+.final{
+  height: calc(100vh - 5rem);
+  display: grid;
+  align-items: center;
+}
